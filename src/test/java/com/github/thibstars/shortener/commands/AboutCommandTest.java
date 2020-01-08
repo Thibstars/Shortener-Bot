@@ -1,10 +1,10 @@
-package be.thibaulthelsmoortel.discordbotbase.commands;
+package com.github.thibstars.shortener.commands;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import be.thibaulthelsmoortel.discordbotbase.config.DiscordBotEnvironment;
+import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 import org.junit.jupiter.api.Assertions;

@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase;
+package com.github.thibstars.shortener;
 
 import com.github.thibstars.chatbotengine.provider.discord.DiscordProvider;
 import org.springframework.boot.test.context.SpringBootTest;

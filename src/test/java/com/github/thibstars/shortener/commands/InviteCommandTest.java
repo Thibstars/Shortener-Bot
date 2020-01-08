@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase.commands;
+package com.github.thibstars.shortener.commands;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;

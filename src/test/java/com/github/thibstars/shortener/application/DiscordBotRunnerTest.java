@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase.application;
+package com.github.thibstars.shortener.application;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -8,8 +8,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-import be.thibaulthelsmoortel.discordbotbase.BaseTest;
-import be.thibaulthelsmoortel.discordbotbase.config.DiscordBotEnvironment;
+import com.github.thibstars.shortener.BaseTest;
+import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthentication;
 import com.github.thibstars.chatbotengine.cli.commands.CommandExecutor;
 import com.github.thibstars.chatbotengine.cli.io.discord.MessageChannelOutputStream;

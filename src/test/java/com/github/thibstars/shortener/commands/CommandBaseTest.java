@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase.commands;
+package com.github.thibstars.shortener.commands;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -6,7 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-import be.thibaulthelsmoortel.discordbotbase.BaseTest;
+import com.github.thibstars.shortener.BaseTest;
 import com.github.thibstars.chatbotengine.cli.commands.BaseCommand;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;

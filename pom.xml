@@ -9,12 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>be.thibaulthelsmoortel</groupId>
-	<artifactId>discord-bot-base</artifactId>
+	<groupId>com.github.thibstars</groupId>
+	<artifactId>shortener-bot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>Discord Bot Base</name>
-	<description>Starting point to create Java Discord bot applications.</description>
+	<name>Shortener Bot</name>
+	<description>Shortens urls in chat.</description>
 
 	<properties>
 		<java.version>12</java.version>

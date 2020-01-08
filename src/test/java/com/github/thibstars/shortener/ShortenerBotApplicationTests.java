@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase;
+package com.github.thibstars.shortener;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Thibault Helsmoortel
  */
-class DiscordBotBaseApplicationTests extends BaseTest {
+class ShortenerBotApplicationTests extends BaseTest {
 
 	@DisplayName("Should load context.")
 	@Test

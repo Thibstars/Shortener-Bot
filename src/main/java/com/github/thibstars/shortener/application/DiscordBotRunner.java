@@ -1,6 +1,6 @@
-package be.thibaulthelsmoortel.discordbotbase.application;
+package com.github.thibstars.shortener.application;
 
-import be.thibaulthelsmoortel.discordbotbase.config.DiscordBotEnvironment;
+import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthentication;
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthenticationHandler;
 import com.github.thibstars.chatbotengine.cli.commands.CommandExecutor;

@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase.commands;
+package com.github.thibstars.shortener.commands;
 
 import com.github.thibstars.chatbotengine.cli.candidates.discord.PermissionCandidates;
 import com.github.thibstars.chatbotengine.cli.commands.BaseCommand;

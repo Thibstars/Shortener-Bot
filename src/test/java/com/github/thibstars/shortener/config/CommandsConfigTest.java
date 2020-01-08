@@ -1,6 +1,6 @@
-package be.thibaulthelsmoortel.discordbotbase.config;
+package com.github.thibstars.shortener.config;
 
-import be.thibaulthelsmoortel.discordbotbase.BaseTest;
+import com.github.thibstars.shortener.BaseTest;
 import java.util.List;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.jupiter.api.Assertions;

@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase.config;
+package com.github.thibstars.shortener.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

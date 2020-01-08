@@ -1,4 +1,4 @@
-package be.thibaulthelsmoortel.discordbotbase;
+package com.github.thibstars.shortener;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,10 +11,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  */
 @EnableConfigurationProperties
 @SpringBootApplication
-public class DiscordBotBaseApplication {
+public class ShortenerBotApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DiscordBotBaseApplication.class, args);
+		SpringApplication.run(ShortenerBotApplication.class, args);
 	}
 
 }

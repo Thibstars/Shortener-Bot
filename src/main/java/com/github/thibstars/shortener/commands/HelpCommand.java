@@ -1,6 +1,6 @@
-package be.thibaulthelsmoortel.discordbotbase.commands;
+package com.github.thibstars.shortener.commands;
 
-import be.thibaulthelsmoortel.discordbotbase.config.DiscordBotEnvironment;
+import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import com.github.thibstars.chatbotengine.cli.commands.BaseCommand;
 import java.util.Arrays;
 import java.util.List;

@@ -1,6 +1,6 @@
-package be.thibaulthelsmoortel.discordbotbase.application;
+package com.github.thibstars.shortener.application;
 
-import be.thibaulthelsmoortel.discordbotbase.config.DiscordBotEnvironment;
+import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
