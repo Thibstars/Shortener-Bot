@@ -20,6 +20,6 @@ public class ShortenerRequest {
 
     private String destination;
 
-
+    private Domain domain;
 
 }

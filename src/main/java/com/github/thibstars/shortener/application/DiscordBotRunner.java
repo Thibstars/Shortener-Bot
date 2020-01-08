@@ -6,7 +6,9 @@ import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthenticatio
 import com.github.thibstars.chatbotengine.cli.commands.CommandExecutor;
 import com.github.thibstars.chatbotengine.cli.io.discord.MessageChannelOutputStream;
 import com.github.thibstars.chatbotengine.provider.discord.DiscordProvider;
+import com.github.thibstars.shortener.service.ShortenerService;
 import java.util.Objects;
+import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -24,6 +26,7 @@ import org.springframework.stereotype.Component;
  * @author Thibault Helsmoortel
  */
 @Component
+@RequiredArgsConstructor
 public class DiscordBotRunner extends ListenerAdapter implements CommandLineRunner {
 
     private final DiscordBotEnvironment discordBotEnvironment;
@@ -32,18 +35,7 @@ public class DiscordBotRunner extends ListenerAdapter implements CommandLineRunn
     private final DiscordProvider discordProvider;
     private final DiscordTokenAuthentication discordTokenAuthentication;
     private final MessageChannelOutputStream messageChannelOutputStream;
-
-    @Autowired
-    public DiscordBotRunner(DiscordBotEnvironment discordBotEnvironment,
-        CommandExecutor commandExecutor, DiscordProvider discordProvider,
-        DiscordTokenAuthentication discordTokenAuthentication,
-        MessageChannelOutputStream messageChannelOutputStream) {
-        this.discordBotEnvironment = discordBotEnvironment;
-        this.commandExecutor = commandExecutor;
-        this.discordProvider = discordProvider;
-        this.discordTokenAuthentication = discordTokenAuthentication;
-        this.messageChannelOutputStream = messageChannelOutputStream;
-    }
+    private final ShortenerService shortenerService;
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -77,16 +69,29 @@ public class DiscordBotRunner extends ListenerAdapter implements CommandLineRunn
 
     @Override
     public void run(String... args) {
+        int tokenIndex = 0;
+        int shortenerApiKeyIndex = tokenIndex + 1;
+        int shortenerWorkspaceIndex = shortenerApiKeyIndex + 1;
         String token;
+        String apiKey;
+        String workspace;
         if (StringUtils.isNotBlank(discordBotEnvironment.getToken())) {
             token = discordBotEnvironment.getToken();
         } else {
             // Take token as first run arg (for example for when running from docker with an ENV variable)
             if (args != null && args.length > 0) {
-                token = args[0];
+                token = args[tokenIndex];
             } else {
                 token = null;
+                shortenerApiKeyIndex--;
+                shortenerWorkspaceIndex--;
             }
+
+            apiKey = args[shortenerApiKeyIndex];
+            workspace = args[shortenerWorkspaceIndex];
+
+            shortenerService.setApiKey(apiKey);
+            shortenerService.setWorkspace(workspace);
         }
 
         JDABuilder jdaBuilder = ((DiscordTokenAuthenticationHandler) discordTokenAuthentication.getHandler()).getJdaBuilder();
