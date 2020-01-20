@@ -89,7 +89,7 @@ class DiscordBotRunnerTest extends BaseTest {
 
         verify(messageChannel).sendTyping();
         verifyNoMoreInteractions(messageChannel);
-        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class));
+        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class), any(Runnable.class));
         verifyNoMoreInteractions(commandExecutor);
     }
 
@@ -140,7 +140,7 @@ class DiscordBotRunnerTest extends BaseTest {
 
         verify(messageChannel).sendTyping();
         verifyNoMoreInteractions(messageChannel);
-        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class));
+        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class), any(Runnable.class));
         verifyNoMoreInteractions(commandExecutor);
     }
 
