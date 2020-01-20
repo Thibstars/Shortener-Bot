@@ -17,6 +17,7 @@ import picocli.CommandLine.Parameters;
 @RequiredArgsConstructor
 public class ShortenCommand extends BaseCommand<MessageReceivedEvent, ShortenerResponse> {
 
+    @SuppressWarnings("unused") // Used through CLI
     @Parameters(paramLabel = "URL", description = "The long url to shorten.", index = "0", arity = "1")
     private String url;
 
