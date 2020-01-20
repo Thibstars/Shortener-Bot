@@ -3,6 +3,7 @@ package com.github.thibstars.shortener.commands;
 import com.github.thibstars.chatbotengine.cli.commands.BaseCommand;
 import com.github.thibstars.shortener.service.ShortenerResponse;
 import com.github.thibstars.shortener.service.ShortenerService;
+import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import picocli.CommandLine.Parameters;
  */
 @Command(name = "shorten", description = "Shortens provided urls.")
 @Component
+@EqualsAndHashCode(callSuper = false)
 @RequiredArgsConstructor
 public class ShortenCommand extends BaseCommand<MessageReceivedEvent, ShortenerResponse> {
 
