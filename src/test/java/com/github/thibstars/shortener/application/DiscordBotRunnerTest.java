@@ -14,6 +14,7 @@ import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthenticatio
 import com.github.thibstars.chatbotengine.cli.commands.CommandExecutor;
 import com.github.thibstars.chatbotengine.cli.io.discord.MessageChannelOutputStream;
 import com.github.thibstars.chatbotengine.provider.discord.DiscordProvider;
+import com.github.thibstars.shortener.service.ShortenerService;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;
@@ -60,10 +61,13 @@ class DiscordBotRunnerTest extends BaseTest {
     @Mock
     private MessageChannelOutputStream messageChannelOutputStream;
 
+    @Mock
+    private ShortenerService shortenerService;
+
     @BeforeEach
     void setUp() {
         this.discordBotRunner = new DiscordBotRunner(discordBotEnvironment, commandExecutor, discordProvider, discordTokenAuthentication,
-            messageChannelOutputStream);
+            messageChannelOutputStream, shortenerService);
     }
 
     @DisplayName("Should handle message received.")
@@ -85,7 +89,7 @@ class DiscordBotRunnerTest extends BaseTest {
 
         verify(messageChannel).sendTyping();
         verifyNoMoreInteractions(messageChannel);
-        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class));
+        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class), any(Runnable.class));
         verifyNoMoreInteractions(commandExecutor);
     }
 
@@ -136,7 +140,7 @@ class DiscordBotRunnerTest extends BaseTest {
 
         verify(messageChannel).sendTyping();
         verifyNoMoreInteractions(messageChannel);
-        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class));
+        verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class), any(Runnable.class));
         verifyNoMoreInteractions(commandExecutor);
     }
 
