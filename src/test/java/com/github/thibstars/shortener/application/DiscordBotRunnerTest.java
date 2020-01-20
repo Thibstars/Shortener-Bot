@@ -1,29 +1,24 @@
 package com.github.thibstars.shortener.application;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-import com.github.thibstars.shortener.BaseTest;
-import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthentication;
 import com.github.thibstars.chatbotengine.cli.commands.CommandExecutor;
 import com.github.thibstars.chatbotengine.cli.io.discord.MessageChannelOutputStream;
 import com.github.thibstars.chatbotengine.provider.discord.DiscordProvider;
+import com.github.thibstars.shortener.BaseTest;
+import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import com.github.thibstars.shortener.service.ShortenerService;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
-import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.requests.RestAction;
-import net.dv8tion.jda.api.requests.restaction.MessageAction;
 import net.dv8tion.jda.internal.entities.ReceivedMessage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -91,24 +86,6 @@ class DiscordBotRunnerTest extends BaseTest {
         verifyNoMoreInteractions(messageChannel);
         verify(commandExecutor).tryExecute(eq(messageReceivedEvent), eq(message), any(Runnable.class), any(Runnable.class));
         verifyNoMoreInteractions(commandExecutor);
-    }
-
-    @DisplayName("Should send message on guild ready.")
-    @Test
-    void shouldSendMessageOnGuildReady() {
-        GuildReadyEvent event = mock(GuildReadyEvent.class);
-        Guild guild = mock(Guild.class);
-        when(event.getGuild()).thenReturn(guild);
-        TextChannel textChannel = mock(TextChannel.class);
-        when(guild.getDefaultChannel()).thenReturn(textChannel);
-        when(textChannel.sendTyping()).thenReturn(mock(RestAction.class));
-        when(textChannel.sendMessage(anyString())).thenReturn(mock(MessageAction.class));
-
-        discordBotRunner.onGuildReady(event);
-
-        verify(textChannel).sendTyping();
-        verify(textChannel).sendMessage(discordBotEnvironment.getName() + " reporting for duty!");
-        verifyNoMoreInteractions(textChannel);
     }
 
     @DisplayName("Should not process bot messages.")
