@@ -41,6 +41,11 @@ public class ShortenerService {
     public ShortenerResponse shorten(String longUrl) {
         log.debug("Shrinking url {}", longUrl);
 
+        if (!longUrl.startsWith("http")) {
+            longUrl = "http://" + longUrl;
+        }
+
+
         httpHeaders.add(API_KEY_HEADER, apiKey);
         httpHeaders.add(WORKSPACE_HEADER, workspace);
         ShortenerRequest request = builder.destination(longUrl).build();
