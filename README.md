@@ -20,7 +20,7 @@ Since the token provides access to the bot, make sure to never share it.
 
 ### Inviting the Bot to a Server ###
 While still in the developer portal in your application context, navigate to 'OAuth2' in the left panel.
-Under 'scopes', tick the 'bot' checkbox to retrieve an invite url for your bot. If the bot needs any permissions, make sure to tick them in the 
+Under 'scopes', tick the 'bot' checkbox to retrieve an invitation url for your bot. If the bot needs any permissions, make sure to tick them in the 
 'bot permissions' section. When ready, navigate to the generated url and add your bot to the target server.
 
 When the bot is running, you will now see it appear in the member list of your server in the Discord app.
