@@ -1,22 +1,18 @@
 package com.github.thibstars.shortener.application;
 
-import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthentication;
 import com.github.thibstars.chatbotengine.auth.discord.DiscordTokenAuthenticationHandler;
 import com.github.thibstars.chatbotengine.cli.commands.CommandExecutor;
 import com.github.thibstars.chatbotengine.cli.io.discord.MessageChannelOutputStream;
 import com.github.thibstars.chatbotengine.provider.discord.DiscordProvider;
+import com.github.thibstars.shortener.config.DiscordBotEnvironment;
 import com.github.thibstars.shortener.service.ShortenerService;
-import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -48,13 +44,6 @@ public class DiscordBotRunner extends ListenerAdapter implements CommandLineRunn
 
     private boolean processMessage(Message message) {
         return (discordBotEnvironment.isProcessBotMessages() && message.getAuthor().isBot()) || !message.getAuthor().isBot();
-    }
-
-    @Override
-    public void onGuildReady(GuildReadyEvent event) {
-        TextChannel textChannel = Objects.requireNonNull(event.getGuild().getDefaultChannel());
-        textChannel.sendTyping().queue();
-        textChannel.sendMessage(discordBotEnvironment.getName() + " reporting for duty!").queue();
     }
 
     private void handleMessage(MessageReceivedEvent event, String msg) {
