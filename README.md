@@ -1,4 +1,4 @@
-# Url Shortener # 
+# Url Shortener [![Build Status](https://travis-ci.org/Thibstars/Shortener-Bot.svg?branch=master)](https://travis-ci.org/Thibstars/Shortener-Bot) [![codecov](https://codecov.io/gh/Thibstars/Shortener-Bot/branch/master/graph/badge.svg)](https://codecov.io/gh/Thibstars/Shortener-Bot) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Thibstars/Shortener-Bot)](https://dependabot.com)  # 
 Shortens urls in chat.
 
 ## Usage ##
@@ -9,8 +9,10 @@ In order to run the application, one must first add a Discord bot token to `bot.
 When running directly using `java -jar` you can also pass your token as a first run argument instead. This is also the used approach in the `Dockerfile`.
 
 ### Docker ###
-When running the application from the `Dockerfile` make sure to add a new `BOT_TOKEN` environment variable with the bot token as value so it can be picked up 
-in the underlying `java -jar` entrypoint command.
+When running the application from the `Dockerfile` make sure to add the following environment variables, so they can be picked up in the underlying `java -jar` entrypoint command:
+- `BOT_TOKEN`: Discord bot token;
+- `API_KEY`: shortener's API key;
+- `WORKSPACE_ID`: shortener's workspace id.
 
 ## Discord Setup ##
 ### Retrieving the Token ###
